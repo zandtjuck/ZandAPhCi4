@@ -1,6 +1,7 @@
 #!/bin/bash
 
 pkg up -y;
+echo "install dependencies";
 pkg i php apache2 php-apache mariadb composer termux-service termux-api -y;
 cp php.conf $PREFIX/etc/apache2/conf.d/php.conf;
 echo "success cp php.conf to $PREFIX/etc/apache2/conf.d/php.conf";
@@ -21,7 +22,7 @@ echo "success install apache mariadb php phpmyadmin and codeigniter4 with myth/a
 cp run-httpd-mysqld.sh ~/run-httpd-mysqld.sh;
 cp stop-httpd-mysqld.sh ~/stop-httpd-mysqld.sh;
 echo "success copy paste script run and stop httpd mysqld";
-echo "now, you have to configure mysql yourself by typing mysqld_safe and type";
+echo "now, you have to configure mysql by typing mysqld_safe and type";
 echo "";
 echo "CREATE USER 'root' IDENTIFIED BY '';";
 echo "GRANT ALL ON db.* TO root@localhost IDENTIFIED BY '';";
