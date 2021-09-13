@@ -1,7 +1,7 @@
 #!/bin/bash
 
 pkg up -y;
-pkg i php apache2 php-apache mariadb composer -y;
+pkg i php apache2 php-apache mariadb composer termux-service termux-api -y;
 cp php.conf $PREFIX/etc/apache2/conf.d/php.conf;
 echo "success cp php.conf to $PREFIX/etc/apache2/conf.d/php.conf";
 termux-setup-storage;
