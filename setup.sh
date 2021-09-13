@@ -2,7 +2,12 @@
 
 pkg up -y;
 echo "install dependencies";
-pkg i php apache2 php-apache mariadb composer termux-service termux-api -y;
+pkg i unstable-repo -y;
+pkg i termux-api -y;
+pkg i runit termux-service -y;
+termux-setup-storage;
+pkg i php apache2 php-apache -y;
+pkg i mariadb composer -y;
 cp php.conf $PREFIX/etc/apache2/conf.d/php.conf;
 echo "success cp php.conf to $PREFIX/etc/apache2/conf.d/php.conf";
 termux-setup-storage;
