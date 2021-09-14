@@ -31,10 +31,14 @@ cp stop-httpd-mysqld.sh ~/stop-httpd-mysqld.sh;
 cp config.inc.php /sdcard/htdocs/phpmyadmin;
 
 echo "success copy paste script run and stop httpd mysqld";
-echo "now, you have to configure mysql by typing mysqld_safe and type";
+echo "now, you have to configure mysql by typing manually this script";
 echo "";
 echo "CREATE USER 'root' IDENTIFIED BY '';";
 echo "GRANT ALL ON db.* TO root@localhost IDENTIFIED BY '';";
 echo "FLUSH PRIVILEGES;";
 echo "quit;";
 echo "";
+echo "";
+sv-enable httpd;
+sv-enable mysqld;
+mariadb;
