@@ -1,16 +1,18 @@
-#!/bin/bash
+#!/data/data/com.termux/files/usr/bin/bash
 
 pkg up -y;
 echo "install dependencies";
 pkg i unstable-repo -y;
 pkg i termux-api -y;
-pkg i runit termux-service -y;
+pkg i runit termux-services -y;
 termux-setup-storage;
+sleep 30;
 pkg i php apache2 php-apache -y;
 pkg i mariadb composer -y;
 cp php.conf $PREFIX/etc/apache2/conf.d/php.conf;
-echo "success cp php.conf to $PREFIX/etc/apache2/conf.d/php.conf";
-termux-setup-storage;
+rm $PREFIX/etc/apache2/httpd.conf;
+cp httpd.conf $PREFIX/etc/apache2/httpd.conf;
+echo "success replace config php.conf & httpd.conf";
 mkdir /sdcard/htdocs;
 echo "success make dir /sdcard/htdocs";
 cp index.html /sdcard/htdocs;
@@ -34,5 +36,3 @@ echo "GRANT ALL ON db.* TO root@localhost IDENTIFIED BY '';";
 echo "FLUSH PRIVILEGES;";
 echo "quit;";
 echo "";
-
-
