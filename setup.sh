@@ -28,6 +28,8 @@ composer require --working-dir=/sdcard/htdocs/ci4 myth/auth;
 echo "success install apache mariadb php phpmyadmin and codeigniter4 with myth/auth";
 cp run-httpd-mysqld.sh ~/run-httpd-mysqld.sh;
 cp stop-httpd-mysqld.sh ~/stop-httpd-mysqld.sh;
+cp config.inc.php /sdcard/htdocs/phpmyadmin;
+
 echo "success copy paste script run and stop httpd mysqld";
 echo "now, you have to configure mysql by typing mysqld_safe and type";
 echo "";
